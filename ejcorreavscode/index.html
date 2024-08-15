@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bionote</title>
+    <style>
+        @font-face {
+            font-family: linkk;
+            src: url(linkk.otf);
+        }
+        @font-face {
+            font-family: font;
+            src: url(font.otf);
+        }
+        body {
+            background-image: url('BG.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: #d9d9d9;
+            font-family: linkk;
+        }
+
+        .quote {
+            font-size: 90px;
+            margin: 0;
+            padding: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            color:#bab5cd;
+        }
+
+        .p-container {
+            font-size: 110px;
+            margin-top: 1250px;
+            right: 350px;
+            color: #e0d6d6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            color: #bab5cd;
+        }
+
+        .bio-container {
+            position: absolute;
+            font-size: 25px;
+            bottom: -950px;
+            right: 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: transparent;
+            border-radius: 10px;
+            font-family: font;
+        }
+
+        .bio-container p {
+            font-family: font;
+            border: 2px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .web-icons {
+            position: absolute;
+            top: 125px;
+            right: 100px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .web-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .web-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .web-icon:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .web-icon:hover img {
+            transform: rotate(360deg);
+        }
+
+        .linkedin:hover {
+            background-color: transparent;
+        }
+
+        .social-icons {
+            position: absolute;
+            bottom: -270px;
+            right: 130px;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-icon {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.5s ease;
+            
+        }
+
+        .hidden-icons {
+            position: absolute;
+            top:100px;
+            left: -100px;
+            display: flex;
+            flex-direction: row;
+            gap: 0px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .social-icons:hover .hidden-icons {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-icon:hover img {
+            transform: rotate(180deg);
+            box-shadow: 0 8px 12px rgb(255, 253, 253);
+
+        }
+
+
+        .social-icon:hover img {
+            transform: rotate(360deg);
+        }
+
+        .slideshow-container {
+            position: absolute;
+            left: 100px;
+            bottom: -990px;
+            top: 1150px;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            width: 400px;
+            height: 500px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 0;
+            }
+
+            60% {
+                opacity: 0;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .slide1 {
+            animation: fade 21s infinite;
+            animation-delay: 0s;
+        }
+
+        .slide2 {
+            animation: fade 21s infinite;
+            animation-delay: 3s;
+        }
+
+        .slide3 {
+            animation: fade 21s infinite;
+            animation-delay: 6s;
+        }
+
+        .slide4 {
+            animation: fade 21s infinite;
+            animation-delay: 9s;
+        }
+
+        .slide5 {
+            animation: fade 21s infinite;
+            animation-delay: 12s;
+        }
+
+        .slide6 {
+            animation: fade 21s infinite;
+            animation-delay: 15s;
+        }
+
+        .slide7 {
+            animation: fade 21s infinite;
+            animation-delay: 18s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="slide slide1">
+            <img src="ej1.jpg" alt="ej1">
+        </div>
+        <div class="slide slide2">
+            <img src="ej2.jpg" alt="ej2">
+        </div>
+        <div class="slide slide3">
+            <img src="ej3.jpg" alt="ej3">
+        </div>
+        <div class="slide slide4">
+            <img src="ej4.jpg" alt="ej4">
+        </div>
+        <div class="slide slide5">
+            <img src="ej5.jpg" alt="ej5">
+        </div>
+        <div class="slide slide6">
+            <img src="ej6.jpg" alt="ej6">
+        </div>
+        <div class="slide slide7">
+            <img src="ej7.jpg" alt="ej7">
+        </div>
+    </div>
+    <div class="web-icons">
+        </a>
+        <a href="https://www.brainyquote.com/quotes/alan_kay_100831" target="_blank" class="web-icon">
+            <img src="webbb.png" alt="email">
+        </a>
+    </div>
+
+    <div class="social-icons">
+        <div class="main-icon">
+            <img src="menu.png" alt="menu" class="social-icon webbb">
+        </div>
+        <div class="hidden-icons">
+            <a href="https://www.facebook.com/ej.correa.7?mibextid=ZbWKwL" target="_blank" class="social-icon facebook">
+                <img src="fb.png" alt="Facebook" style="width: 60px; height: 60px;">
+            </a>
+            <a href="https://www.instagram.com/eeeejjjjjjjj_/" target="_blank" class="social-icon instagram">
+                <img src="igg.png" alt="Instagram" style="width: 60px; height: 60px;">
+            </a>
+            <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" class="social-icon email">
+                <img src="email.png" alt="Email" style="width: 60px; height: 60px;">
+            </a>
+        </div>
+    </div>
+
+    <div class="quote">
+        <p>
+            "THE BEST WAY TO PREDICT <br>
+            THE FUTURE IS TO INVENT IT."
+
+        </p>
+    </div>
+
+    <div class="p-container">
+        <p>EARL JIM CORREA</p>
+    </div>
+
+    <div class="bio-container">
+        <p>
+            Is a third-year college computer engineering student at the University of the East.
+            and He is interested in various aspects of computer engineering, such as software development,
+            cybersecurity, hardware design, and other courses.
+        </p>
+        <p>
+            EJ is a member of the Society of Computer Engineering Students and has participated in workshops and
+            hackathons, He gained more knowledge and learned how to improve himself. He is eager to continue learning.
+            more about his program and is committed to exploring additional aspects of computer engineering to
+            prepare for future career opportunities.
+        </p>
+    </div>
+
+</body>
+
+</html>
